@@ -42,7 +42,7 @@ var importStream = function(rs, opts, callback) {
 
     // load the CSV parser
     var parse = require('csv-parse'),
-      objectifier = parse({delimiter: opts.COUCH_DELIMITER, columns: true, skip_empty_lines: true, relax: true});
+      objectifier = parse({delimiter: opts.COUCH_DELIMITER, columns: true, skip_empty_lines: true, relax: true, relax_column_count: true});
     
     // pipe the input to the output, via transformation functions
     rs.pipe(objectifier)  // turn each line into an object
